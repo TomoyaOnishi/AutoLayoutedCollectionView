@@ -1,0 +1,2 @@
+# AutoLayoutedCollectionView
+A CollectionView layout sample using UICollectionViewFlowLayoutAutomaticSize.
