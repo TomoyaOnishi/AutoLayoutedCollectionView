@@ -28,8 +28,9 @@ final class TwoLabelCell: UICollectionViewCell {
         label1.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20).isActive = true
         label1.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20).isActive = true
         
-        // label2が下に来るのでlabel1側からはbottomは決めない
-        // label1.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        let label1Width = label1.widthAnchor.constraint(equalToConstant: 150)
+        label1Width.priority = UILayoutPriority(999)
+        label1Width.isActive = true
         
         let label2 = UILabel()
         label2.backgroundColor = .orange
@@ -44,11 +45,7 @@ final class TwoLabelCell: UICollectionViewCell {
         label2.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20).isActive = true
         label2.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20).isActive = true
         label2.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
-        
-        // Layout engineはlabel1,label2がどれだけ縦に伸びて、どれだけ横に伸びればいいのかわからないので横幅は決めてあげる
-        // すると縦の高さはLayout engineが計算できるようになる(ここではlabel1,label2のintrinsicContentSize.heightの合計とconstant)
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.widthAnchor.constraint(equalToConstant: 240).isActive = true
+
     }
     
 }

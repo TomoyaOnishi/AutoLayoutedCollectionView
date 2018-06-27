@@ -10,20 +10,6 @@ final class ComplicatedUICell: UICollectionViewCell {
         configureViews()
     }
     
-    struct AutoLayout {
-        var width: NSLayoutConstraint?
-    }
-    var autolayout: AutoLayout = AutoLayout()
-    
-    var width: CGFloat {
-        get {
-            return autolayout.width?.constant ?? 0.0
-        }
-        set {
-            autolayout.width?.constant = newValue
-        }
-    }
-    
     let textView = UITextView()
     
     let stack = UIStackView()
@@ -50,12 +36,15 @@ final class ComplicatedUICell: UICollectionViewCell {
         label.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20).isActive = true
         label.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20).isActive = true
         
+        let labelWidth = label.widthAnchor.constraint(equalToConstant: 150)
+        labelWidth.priority = UILayoutPriority(999)
+        labelWidth.isActive = true
+        
         textView.backgroundColor = .orange
         textView.text = "十一月同窓会十一月同窓会十一月同窓会十一月同窓会十一月同窓会十一月同窓会十一月同窓会十一月同窓会十一月同窓会十一月同窓会十一月同窓会十一月同窓会十一月同窓会十一月同窓会十一月同窓会十一月同窓会"
         textView.font = UIFont.preferredFont(forTextStyle: .body)
         textView.isScrollEnabled = false
         textView.isEditable = false
-        textView.delegate = self
         
         textView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(textView)
@@ -101,16 +90,11 @@ final class ComplicatedUICell: UICollectionViewCell {
         stack.topAnchor.constraint(equalTo: switch1.bottomAnchor, constant: 50).isActive = true
         stack.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
         stack.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10).isActive = true
-        stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        autolayout.width = contentView.widthAnchor.constraint(equalToConstant: 200)
-        autolayout.width?.isActive = true
-        
+        let stackBottom = stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        stackBottom.priority = .defaultLow
+        stackBottom.isActive = true
         
     }
-    
-}
-extension ComplicatedUICell : UITextViewDelegate {
     
 }

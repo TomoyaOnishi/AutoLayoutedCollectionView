@@ -1,6 +1,6 @@
 import UIKit
 
-final class MutableTwoLabelViewController: UIViewController {
+final class ManualSizingViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     let collectionView: UICollectionView = {
@@ -19,23 +19,23 @@ final class MutableTwoLabelViewController: UIViewController {
     
     init() {
         print(#function, type(of: self))
+        super.init(nibName: nil, bundle: nil)
+        configureViews()
+    }
+    
+    deinit {
+        print(#function, type(of: self))
         if let token = token {
             NotificationCenter.default.removeObserver(token)
         }
-        super.init(nibName: nil, bundle: nil)
-        configureViews()
-
-        token = NotificationCenter.default.addObserver(forName: .keyWindowFrameWillChange, object: nil, queue: .main) { [weak self] (_) in
-            self?.collectionView.collectionViewLayout.invalidateLayout()
-        }
     }
+    
     
     private func configureViews() {
         view.backgroundColor = .white
         
-        collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(MutableTwoLabelCell.self, forCellWithReuseIdentifier: NSStringFromClass(MutableTwoLabelCell.self))
+        collectionView.register(ManualSizingCell.self, forCellWithReuseIdentifier: NSStringFromClass(ManualSizingCell.self))
         
         collectionView.backgroundColor = UIColor.orange.withAlphaComponent(0.3)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,13 +45,11 @@ final class MutableTwoLabelViewController: UIViewController {
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-    }
-    
-    override func viewWillLayoutSubviews() {
-        print(#function)
-        super.viewWillLayoutSubviews()
         
-        // スクロールすると途中でたまに呼ばれる原因がわからず...
+        token = NotificationCenter.default.addObserver(forName: .keyWindowFrameWillChange, object: nil, queue: .main) { [weak self] (_) in
+            self?.collectionView.collectionViewLayout.invalidateLayout()
+        }
+        
     }
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -61,24 +59,13 @@ final class MutableTwoLabelViewController: UIViewController {
     
 }
 
-extension MutableTwoLabelViewController: UICollectionViewDataSource {
+extension ManualSizingViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int { return 30 }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { return 30 }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print(#function)
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(MutableTwoLabelCell.self), for: indexPath) as! MutableTwoLabelCell
-        switch indexPath.item % 5 == 0 {
-        case true: cell.width = collectionView.bounds.width - layout.sectionInset.left - layout.sectionInset.right
-        case false: cell.width = 100
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(ManualSizingCell.self), for: indexPath) as! ManualSizingCell
         return cell
     }
     
-}
-
-extension MutableTwoLabelViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        print(#function)
-    }
 }

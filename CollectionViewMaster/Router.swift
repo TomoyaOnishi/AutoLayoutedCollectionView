@@ -23,7 +23,7 @@ final class Router {
         case .simple: return SimpleViewController()
         case .uilabel: return LabelViewController()
         case .twoLabel: return TwoLabelViewController()
-        case .mutableWidthTwoLabel: return MutableTwoLabelViewController()
+        case .mutableWidthTwoLabel: return ManualSizingViewController()
         case .complicated: return ComplicatedUIViewController()
         }
     }

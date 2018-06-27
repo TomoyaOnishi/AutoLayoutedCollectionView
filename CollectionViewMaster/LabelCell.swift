@@ -28,11 +28,8 @@ final class LabelCell: UICollectionViewCell {
         label.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20).isActive = true
         label.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-
-        // Layout engineはラベルがどれだけ縦に伸びて、どれだけ横に伸びればいいのかわからないので横幅は決めてあげる
-        // すると縦の高さはLayout engineが計算できるようになる(ここではUILabelのintrinsicContentSize.height)
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        let widthAnchor = label.widthAnchor.constraint(equalToConstant: 150)
+        widthAnchor.priority = .defaultHigh
+        widthAnchor.isActive = true
     }
-    
 }

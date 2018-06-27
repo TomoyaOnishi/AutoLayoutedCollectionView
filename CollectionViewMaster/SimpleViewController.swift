@@ -9,7 +9,7 @@ final class SimpleViewController: UIViewController {
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
         layout.sectionInset.top = 100
-        return UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return UICollectionView(frame: CGRect(x: 0, y: 0, width: 500, height: 500), collectionViewLayout: layout)
     }()
     
     init() {
@@ -17,6 +17,14 @@ final class SimpleViewController: UIViewController {
         configureViews()
     }
     
+    deinit {
+        print(#function, type(of: self))
+        if let token = token {
+            NotificationCenter.default.removeObserver(token)
+        }
+    }
+    
+    var token: NSObjectProtocol?
     private func configureViews() {
         view.backgroundColor = .white
         
@@ -32,15 +40,10 @@ final class SimpleViewController: UIViewController {
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
-    }
+        token = NotificationCenter.default.addObserver(forName: .keyWindowFrameWillChange, object: nil, queue: .main) { [weak self] (_) in
+            self?.collectionView.collectionViewLayout.invalidateLayout()
+        }
 
-    override func viewWillLayoutSubviews() {
-        print(#function)
-        collectionView.collectionViewLayout.invalidateLayout()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        print(#function)
     }
     
 }

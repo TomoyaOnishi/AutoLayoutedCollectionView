@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD2E24A320E386D100DB3F55 /* ManualSizingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2E24A220E386D100DB3F55 /* ManualSizingViewController.swift */; };
 		DD51502220DD005100D1966F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD51502120DD005100D1966F /* AppDelegate.swift */; };
 		DD51502720DD005100D1966F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD51502520DD005100D1966F /* Main.storyboard */; };
 		DD51502920DD005200D1966F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD51502820DD005200D1966F /* Assets.xcassets */; };
@@ -20,13 +21,13 @@
 		DDDA55AB20DE10A200BE68A9 /* LabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDA55AA20DE10A200BE68A9 /* LabelViewController.swift */; };
 		DDDA55AD20DF539A00BE68A9 /* TwoLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDA55AC20DF539A00BE68A9 /* TwoLabelViewController.swift */; };
 		DDDA55AF20DF556800BE68A9 /* TwoLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDA55AE20DF556800BE68A9 /* TwoLabelCell.swift */; };
-		DDDA55B120DF588000BE68A9 /* MutableTwoLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDA55B020DF588000BE68A9 /* MutableTwoLabelCell.swift */; };
-		DDDA55B320DF58A200BE68A9 /* MutableTwoLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDA55B220DF58A200BE68A9 /* MutableTwoLabelViewController.swift */; };
+		DDDA55B120DF588000BE68A9 /* ManualSizingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDA55B020DF588000BE68A9 /* ManualSizingCell.swift */; };
 		DDDA55B520DF600200BE68A9 /* ComplicatedUICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDA55B420DF600200BE68A9 /* ComplicatedUICell.swift */; };
 		DDDA55B720DF6DF300BE68A9 /* ComplicatedUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDA55B620DF6DF300BE68A9 /* ComplicatedUIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD2E24A220E386D100DB3F55 /* ManualSizingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualSizingViewController.swift; sourceTree = "<group>"; };
 		DD51501E20DD005100D1966F /* CollectionViewMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD51502120DD005100D1966F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD51502620DD005100D1966F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,8 +43,7 @@
 		DDDA55AA20DE10A200BE68A9 /* LabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewController.swift; sourceTree = "<group>"; };
 		DDDA55AC20DF539A00BE68A9 /* TwoLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoLabelViewController.swift; sourceTree = "<group>"; };
 		DDDA55AE20DF556800BE68A9 /* TwoLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoLabelCell.swift; sourceTree = "<group>"; };
-		DDDA55B020DF588000BE68A9 /* MutableTwoLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableTwoLabelCell.swift; sourceTree = "<group>"; };
-		DDDA55B220DF58A200BE68A9 /* MutableTwoLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableTwoLabelViewController.swift; sourceTree = "<group>"; };
+		DDDA55B020DF588000BE68A9 /* ManualSizingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualSizingCell.swift; sourceTree = "<group>"; };
 		DDDA55B420DF600200BE68A9 /* ComplicatedUICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicatedUICell.swift; sourceTree = "<group>"; };
 		DDDA55B620DF6DF300BE68A9 /* ComplicatedUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicatedUIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,14 +86,14 @@
 				DD51503320DD007B00D1966F /* Router.swift */,
 				DDDA55A620DD109700BE68A9 /* Designer.swift */,
 				DD51503720DD021100D1966F /* EntryViewController.swift */,
-				DD51503520DD019700D1966F /* SimpleViewController.swift */,
 				DDDA55A420DD0C4000BE68A9 /* SimpleCell.swift */,
+				DD51503520DD019700D1966F /* SimpleViewController.swift */,
 				DDDA55A820DE0F6400BE68A9 /* LabelCell.swift */,
 				DDDA55AA20DE10A200BE68A9 /* LabelViewController.swift */,
-				DDDA55AC20DF539A00BE68A9 /* TwoLabelViewController.swift */,
 				DDDA55AE20DF556800BE68A9 /* TwoLabelCell.swift */,
-				DDDA55B020DF588000BE68A9 /* MutableTwoLabelCell.swift */,
-				DDDA55B220DF58A200BE68A9 /* MutableTwoLabelViewController.swift */,
+				DDDA55AC20DF539A00BE68A9 /* TwoLabelViewController.swift */,
+				DDDA55B020DF588000BE68A9 /* ManualSizingCell.swift */,
+				DD2E24A220E386D100DB3F55 /* ManualSizingViewController.swift */,
 				DDDA55B420DF600200BE68A9 /* ComplicatedUICell.swift */,
 				DDDA55B620DF6DF300BE68A9 /* ComplicatedUIViewController.swift */,
 			);
@@ -172,7 +172,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD51503420DD007B00D1966F /* Router.swift in Sources */,
-				DDDA55B320DF58A200BE68A9 /* MutableTwoLabelViewController.swift in Sources */,
 				DDDA55B720DF6DF300BE68A9 /* ComplicatedUIViewController.swift in Sources */,
 				DD51503820DD021100D1966F /* EntryViewController.swift in Sources */,
 				DDDA55A920DE0F6400BE68A9 /* LabelCell.swift in Sources */,
@@ -180,9 +179,10 @@
 				DDDA55AB20DE10A200BE68A9 /* LabelViewController.swift in Sources */,
 				DDDA55AF20DF556800BE68A9 /* TwoLabelCell.swift in Sources */,
 				DDDA55A720DD109700BE68A9 /* Designer.swift in Sources */,
-				DDDA55B120DF588000BE68A9 /* MutableTwoLabelCell.swift in Sources */,
+				DDDA55B120DF588000BE68A9 /* ManualSizingCell.swift in Sources */,
 				DD51503620DD019700D1966F /* SimpleViewController.swift in Sources */,
 				DD51502220DD005100D1966F /* AppDelegate.swift in Sources */,
+				DD2E24A320E386D100DB3F55 /* ManualSizingViewController.swift in Sources */,
 				DDDA55A520DD0C4000BE68A9 /* SimpleCell.swift in Sources */,
 				DDDA55B520DF600200BE68A9 /* ComplicatedUICell.swift in Sources */,
 			);

@@ -40,8 +40,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfN-cU-cg8">
-                                <rect key="frame" x="79" y="432" width="218" height="30"/>
-                                <state key="normal" title="Mutable Width Two UILabel Cell"/>
+                                <rect key="frame" x="125" y="432" width="125" height="30"/>
+                                <state key="normal" title="Manual Sizing Cell"/>
                                 <connections>
                                     <action selector="didTapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iqh-lB-tMa"/>
                                 </connections>
